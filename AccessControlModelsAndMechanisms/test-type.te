@@ -1,0 +1,17 @@
+module test-type 1.0.0;
+
+require { 
+        type bin_t;
+        type fs_t;
+        class file relabelto; 
+        class filesystem associate; 
+}
+
+type test_t; 
+
+#======= bin_t ==========
+allow bin_t test_t:file relabelto; 
+
+#========= test_t =============
+allow test_t fs_t:filesystem associate;
+
