@@ -3,10 +3,10 @@ obj-m := badmod.o
 
 # cross compilation env vars
 ARCH := arm64
-CROSS_COMPILE := aarch64-poky-linux-
+CROSS_COMPILE := aarch64-linux-gnu-
 
 # Set KDIR to kernel source dir
-KDIR := /var/lib/homes/simon/tmp/khc/kernel/
+KDIR := /home/builduser/kernel/
 PWD := $(shell pwd)
 
 all:
