@@ -1,0 +1,9 @@
+This is a snapshot of:
+https://github.com/a13xp0p0v/kconfig-hardened-check
+
+Specifically:
+https://github.com/a13xp0p0v/kconfig-hardened-check/commit/5e4fba6623a686f4c4e86727b2e90df86dc340f0
+
+All licenses, copyright etc. apply as per the original repository.
+
+--Doulos Ltd, 29th July 2021
