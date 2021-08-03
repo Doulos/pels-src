@@ -11,22 +11,22 @@ echo "==DH== Generate DH initial parameters p (large prime) and g (the generator
 	openssl dhparam -out dhp.pem 512 2>/dev/null
 	openssl pkeyparam -in dhp.pem -text -noout
 
-echo "==DH== Use the DH initial paramters to generate Bob's private key: g (generator), p (prime), b (private exponent), g^b*log(p) (public point) "
+echo "==DH== Use the DH initial paramters to generate Bob's private key: g (generator), p (prime), b (private exponent), g^b mod(p) (public point) "
 	openssl genpkey -paramfile dhp.pem -out dhkey_Bob.pem > /dev/null
   	openssl pkey -in dhkey_Bob.pem -text -noout
 
 echo "==DH== Extract public information from Bob's private key (dhkey_Bob.pem) to produce
-      public key: g (generator), p (prime), g^b*log(p) (Bob's public point)"
+      public key: g (generator), p (prime), g^b mod(p) (Bob's public point)"
   	openssl pkey -in dhkey_Bob.pem -pubout -out  dhpub_Bob.pem
   	openssl  pkey -pubin -in dhpub_Bob.pem  -text -noout
 
 
 echo "==DH== Use the DH initial paramters to generate Alices's 
-      private key: g (generator), p (prime), a (private exponent), g^a*log(p) (public point) "
+      private key: g (generator), p (prime), a (private exponent), g^a mod(p) (public point) "
 	openssl genpkey -paramfile dhp.pem -out dhkey_Alice.pem
 
 echo "==DH== Extract public information from Alice's private key (dhkey_Alice.pem) to produce
-      public key: g (generator), p (prime), g^a*log(p) (Alice's public point)"
+      public key: g (generator), p (prime), g^a mod(p) (Alice's public point)"
  	openssl pkey -in dhkey_Alice.pem -pubout -out  dhpub_Alice.pem
 	openssl  pkey -pubin -in dhpub_Alice.pem  -text -noout
 
