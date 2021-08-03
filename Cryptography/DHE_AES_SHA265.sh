@@ -58,14 +58,14 @@ echo "==ENC== Alice encrypts \"plain.txt\", using the advertised IV, to produce 
 	openssl enc -e -iv $(echo $IV) -aes-256-cbc \
 		-K $(hexdump -v -e '/1 "%02X"' secret_alice.bin) \
 		-in plain.txt -out cipher-sent.bin 2>/dev/null
-echo "==ENC== Public information: Alice sends basic integrity checks to Bob which they have agreed should be checked before proceeding with decryting received messages:"
+echo "==TAG== Public information: Alice sends basic integrity checks to Bob which they have agreed should be checked before proceeding with decryting received messages:"
 	TAG=$((sha256sum cipher-sent.bin; echo ALICE) | sha256sum )
-echo "==ENC== The chosen TAG (SHA256(SHA256 CIPHER | ALICE) is  $TAG"
+echo "==TAG== The chosen TAG (SHA256(SHA256 CIPHER | ALICE) is  $TAG"
 # Now Bob will decrypt this message with their derived key, 
 # but ONLY if the sent tag is the same as the one they calculate.
-echo "==DEC== Bob evaluates message TAG"
+echo "==TAG== Bob evaluates message TAG"
 	TAG2=$((sha256sum cipher-sent.bin; echo ALICIA) | sha256sum) 
-echo "==DEC== Received TAG avaluated by Bob is: $TAG2"
+echo "==TAG== Received TAG avaluated by Bob is: $TAG2"
 	if [[ "$TAG2" == "$TAG" ]]; then 
 		echo "==DEC== Message TAG test: PASSED ..."
 		echo "==DEC== Bob decrypts \"cipher-sent.bin\", using the advetised IV, to produce \"plain-recieved.txt\" "
