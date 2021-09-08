@@ -1,3 +1,7 @@
+function pause(){
+	read -p "$*"
+}
+
 reset
 echo "=================================================================== "
 echo "This script emulates an ephemeral Diffie-Hellam (EDH) key exchange "
@@ -5,7 +9,9 @@ echo "agreement between Alice and Bob. The exchange agreement is ephemeral "
 echo "as the public key exchange paramters never get re-used."
 echo "=================================================================== "
 
-	sleep 5
+echo " "
+pause 'press any key to proceed'
+echo " "
 
 echo "==DH== Generate DH initial parameters p (large prime) and g (the generator)"
 	openssl dhparam -out dhp.pem 512 2>/dev/null
@@ -30,6 +36,10 @@ echo "==DH== Extract public information from Alice's private key (dhkey_Alice.pe
  	openssl pkey -in dhkey_Alice.pem -pubout -out  dhpub_Alice.pem
 	openssl  pkey -pubin -in dhpub_Alice.pem  -text -noout
 
+echo " "
+pause 'press any key to proceed'
+echo " "
+
 echo "==DH== Alice derives common secret (secret_alice.bin) using their private key (dhkey_Alive) and Bob's peer key (dhpub_Bob)"
 	openssl pkeyutl -derive -keyform PEM -inkey dhkey_Alice.pem -peerkey dhpub_Bob.pem -out secret_alice.bin
 
@@ -48,7 +58,11 @@ echo "3 - Alice adds a simple message integrity check (could be replaced with mo
 echo "4 - Bob follows the protocol and first checks the integrity of the cipher text before decrypting."
 echo "5 - if message integrity passes, Bob decrypts cipher-sent.bin into plain-received.txt using secret_bob.bin."
 echo "=========================================================================================================="
-	sleep 5
+
+echo " "
+pause 'press any key to proceed'
+echo " "
+
 # We need to represent 16 random characters (16 bytes) into hex (0xXX):
 echo "==ENC== Public information: we are generating a 128bit IV for the current encryption:"
 	IV=$(hexdump -n 16 -e '"%X"'  /dev/urandom )
@@ -68,7 +82,7 @@ echo "==TAG== Bob evaluates message TAG"
 echo "==TAG== Received TAG avaluated by Bob is: $TAG2"
 	if [[ "$TAG2" == "$TAG" ]]; then 
 		echo "==DEC== Message TAG test: PASSED ..."
-		echo "==DEC== Bob decrypts \"cipher-sent.bin\", using the advetised IV, to produce \"plain-recieved.txt\" "
+		echo "==DEC== Bob decrypts \"cipher-sent.bin\", using the advertised IV, to produce \"plain-received.txt\" "
 		openssl enc -d -iv $(echo $IV) -aes-256-cbc \
 		-K $(hexdump -v -e '/1 "%02X"' secret_bob.bin) \
 		-in cipher-sent.bin -out plain-received.bin 2>/dev/null
