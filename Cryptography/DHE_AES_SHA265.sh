@@ -10,7 +10,7 @@ echo "as the public key exchange paramters never get re-used."
 echo "=================================================================== "
 
 echo " "
-pause 'press any key to proceed'
+pause 'press enter to proceed'
 echo " "
 
 echo "==DH== Generate DH initial parameters p (large prime) and g (the generator)"
@@ -37,7 +37,7 @@ echo "==DH== Extract public information from Alice's private key (dhkey_Alice.pe
 	openssl  pkey -pubin -in dhpub_Alice.pem  -text -noout
 
 echo " "
-pause 'press any key to proceed'
+pause 'press enter to proceed'
 echo " "
 
 echo "==DH== Alice derives common secret (secret_alice.bin) using their private key (dhkey_Alive) and Bob's peer key (dhpub_Bob)"
@@ -60,7 +60,7 @@ echo "5 - if message integrity passes, Bob decrypts cipher-sent.bin into plain-r
 echo "=========================================================================================================="
 
 echo " "
-pause 'press any key to proceed'
+pause 'press enter to proceed'
 echo " "
 
 # We need to represent 16 random characters (16 bytes) into hex (0xXX):
