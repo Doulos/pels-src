@@ -9,5 +9,5 @@ int main ()
 
         fprintf(stdout, "hello from pid:%d\n", (int)pid);
 
-        return 0;
+        return 1;
 }
