@@ -6,7 +6,7 @@ ARCH := arm64
 CROSS_COMPILE := aarch64-poky-linux-
 
 # Set KDIR to kernel source dir
-KDIR := /home/builduser/kernel/
+KDIR := /home/$(USER)/kernel/
 PWD := $(shell pwd)
 
 all:
