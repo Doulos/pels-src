@@ -1,0 +1,342 @@
+{
+  "summary": {
+    "title": "Wireless Presenter and USB dongle",
+    "owner": "PELS",
+    "description": "Example model based on CVE-2019-12504:\nCurrent Description  \nDue to unencrypted and unauthenticated data communication, the wireless presenter Inateck WP2002 is prone to keystroke injection attacks. Thus, an attacker is able to send arbitrary keystrokes to a victim's computer system, e.g., to install malware when the target system is unattended. In this way, an attacker can remotely take control over the victim's computer that is operated with an affected receiver of this device."
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [
+      {
+        "title": "CVE-2019",
+        "thumbnail": "./public/content/images/thumbnail.cia.jpg",
+        "diagramType": "CIA",
+        "id": 0,
+        "$$hashKey": "object:74",
+        "diagramJson": {
+          "cells": [
+            {
+              "type": "tm.Process",
+              "size": {
+                "width": 100,
+                "height": 100
+              },
+              "position": {
+                "x": 370,
+                "y": 130
+              },
+              "angle": 0,
+              "id": "00699579-b942-4692-a8f5-ed0ababc5a03",
+              "z": 1,
+              "hasOpenThreats": false,
+              "description": "Accepts button press from user and forwards the instructions to a wireless keyboard interface",
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "Wireless\nPresenter"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Actor",
+              "size": {
+                "width": 160,
+                "height": 80
+              },
+              "position": {
+                "x": 190,
+                "y": 30
+              },
+              "angle": 0,
+              "id": "530b905c-08c6-4e04-b245-db6de07459e2",
+              "z": 3,
+              "hasOpenThreats": false,
+              "description": "The person using the wireless presenter by clicking on the forward/backward buttons.",
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "Actor = Presenter"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Process",
+              "size": {
+                "width": 100,
+                "height": 100
+              },
+              "position": {
+                "x": 700,
+                "y": 140
+              },
+              "angle": 0,
+              "id": "265aed0d-dfa6-496f-959c-6aa35abb18bd",
+              "z": 4,
+              "hasOpenThreats": false,
+              "description": "A USB keyboard adapter which pairs with the Wireless Presenter to receive Forward/Backward keyboard presses",
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "USB Dongle"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Actor",
+              "size": {
+                "width": 160,
+                "height": 80
+              },
+              "position": {
+                "x": 707,
+                "y": 8
+              },
+              "angle": 0,
+              "id": "f4d8cafd-6490-42b7-890d-886de8bb90c0",
+              "z": 5,
+              "hasOpenThreats": false,
+              "outOfScope": true,
+              "reasonOutOfScope": "The interactions between the USB dongle and the PC/Laptop opens a class of threats which cannot be protected by the Wireless Presenter and USB Dongle",
+              "description": "The PC/Laptop of the  Presenter (Actor)",
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isOutOfScope"
+                },
+                "text": {
+                  "text": "PC/Laptop"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "id": "530b905c-08c6-4e04-b245-db6de07459e2"
+              },
+              "target": {
+                "id": "00699579-b942-4692-a8f5-ed0ababc5a03"
+              },
+              "vertices": [
+                {
+                  "x": 370,
+                  "y": 193
+                }
+              ],
+              "id": "579cf8ad-0bc6-4a59-b535-989e5bd7db71",
+              "labels": [
+                {
+                  "position": {
+                    "distance": 0.5,
+                    "offset": 4.609745981339515
+                  },
+                  "attrs": {
+                    "text": {
+                      "text": "Key Press",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 6,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "id": "00699579-b942-4692-a8f5-ed0ababc5a03"
+              },
+              "target": {
+                "id": "265aed0d-dfa6-496f-959c-6aa35abb18bd"
+              },
+              "vertices": [],
+              "id": "48862a5f-23f9-40e8-9b64-cf3f0565f4fb",
+              "labels": [
+                {
+                  "position": 0.5,
+                  "attrs": {
+                    "text": {
+                      "text": "Data Packets",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 8,
+              "hasOpenThreats": true,
+              "isPublicNetwork": true,
+              "threats": [
+                {
+                  "ruleId": "0f20e64c-5d03-42ac-b0ae-ed105a38ee1f",
+                  "title": "Generic threat to Confidentiality",
+                  "type": "Confidentiality",
+                  "modelType": "CIA",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "A generic threat to confidentiality \n==> Added for training:: data can be injected",
+                  "mitigation": "==> Added for training:: We should encrypt, but in this report we are replicating CVE-2019-12504",
+                  "threatId": "a17200b2-008c-467e-9ec4-46fb245bbda6",
+                  "$$hashKey": "object:504"
+                },
+                {
+                  "ruleId": "42511938-37d9-4bb6-866c-947a7c776e7e",
+                  "title": "Generic threat to Integrity",
+                  "type": "Integrity",
+                  "modelType": "CIA",
+                  "status": "NotApplicable",
+                  "severity": "Medium",
+                  "description": "A generic threat to integrity",
+                  "threatId": "857a3a46-7697-46f0-887a-502be4152cbe",
+                  "$$hashKey": "object:513"
+                },
+                {
+                  "ruleId": "52453492-f49f-411e-a59d-5fc2dd98664b",
+                  "title": "Generic threat to Availability",
+                  "type": "Availability",
+                  "modelType": "CIA",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "A generic threat to availability",
+                  "threatId": "5c48ff3b-df06-466e-a9b8-98fc31b73255",
+                  "$$hashKey": "object:522"
+                },
+                {
+                  "ruleId": "38c51fb4-2370-4ac1-a24a-4ba171078ef1",
+                  "title": "Use encryption",
+                  "type": "Confidentiality",
+                  "modelType": "CIA",
+                  "status": "Open",
+                  "severity": "High",
+                  "description": "Unencrypted data sent over a public network may be intercepted and read by an attacker, and should be encrypted either at the message or transport level.",
+                  "mitigation": "=> Training:: This is a generic suggestion. The data flow element does not select \"Is encrypted\" so the tool suggest this a as threat.",
+                  "threatId": "50a0e44b-cc5a-4600-b1ed-0c5f0be9375e",
+                  "$$hashKey": "object:531"
+                }
+              ],
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Boundary",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "x": 490,
+                "y": 130
+              },
+              "target": {
+                "x": 560,
+                "y": 360
+              },
+              "vertices": [],
+              "id": "429223f8-8015-4395-8b38-d9f619e11663",
+              "z": 9,
+              "labels": [
+                {
+                  "position": 0.5,
+                  "attrs": {
+                    "text": {
+                      "text": "Wifi Broadcast",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "attrs": {}
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "id": "265aed0d-dfa6-496f-959c-6aa35abb18bd"
+              },
+              "target": {
+                "x": 780,
+                "y": 90
+              },
+              "vertices": [],
+              "id": "da1013f5-ca01-4684-8b94-66b1e5af29ce",
+              "labels": [
+                {
+                  "position": 0.5,
+                  "attrs": {
+                    "text": {
+                      "text": "Keyboard Input",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 11,
+              "hasOpenThreats": false,
+              "description": "The signal received through the dongle's RF receiver is converted into a keyboard press",
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
+            }
+          ]
+        },
+        "size": {
+          "height": 590,
+          "width": 1014
+        }
+      }
+    ]
+  }
+}
