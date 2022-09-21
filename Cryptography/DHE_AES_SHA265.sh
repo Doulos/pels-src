@@ -134,7 +134,7 @@ pause
 echo "==TAG== (3) Message Authentication Code"
 echo " "
 echo "==TAG== 3.i"
-echo "==TAG== Public information: Alice sends basic integrity checks to Bob which they have agreed should be checked before proceeding with decryting received messages:"
+echo "==TAG== Public information: Alice sends basic integrity checks to Bob which they have agreed should be checked before proceeding with decrypting received messages:"
 echo "==TAG== TAG=$((sha256sum cipher-sent.bin; echo ALICE) | sha256sum )"
 TAG=$((sha256sum cipher-sent.bin; echo ALICE) | sha256sum )
 
